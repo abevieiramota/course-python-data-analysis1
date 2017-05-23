@@ -1,5 +1,6 @@
 # importa a biblioteca pandas
 import pandas as pd
+from IPython.core.interactiveshell import InteractiveShell
 
 # Configuração de formatação de numéricos
 # configura a formatação de inteiros, adicionando um separador de milhares
@@ -16,4 +17,7 @@ def format_float(f):
 # https://www.python.org/dev/peps/pep-0378/#main-proposal-from-nick-coghlan-originally-called-proposal-i    
     return "{:,.2f}".format(f).replace(",", "X").replace(".", ",").replace("X", ".")
 pd.set_option("display.float_format", format_float)
+
+# permite renderizar mais de um output por célula, não apenas o último(default)
+InteractiveShell.ast_node_interactivity = "all"
 
